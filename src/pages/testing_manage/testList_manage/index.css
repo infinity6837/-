@@ -1,0 +1,30 @@
+.testList{
+    position: absolute;
+}
+.testList_top_left{
+    position: absolute;
+    left:40px;
+    width: 300px;
+    top:20px;
+    height: 20px;
+    font-size: 17px;
+}
+.testList_top_cen{
+    position:absolute;
+    width: 400px;
+    left:400px;
+    top:20px;
+}
+.testList_top_right{
+    position: absolute;
+    top:20px;
+    width: 100px;
+    left: 820px;
+}
+.testList_bottom{
+    position: absolute;
+    top:70px;
+    left:40px;
+    width: 1000px;
+    height: 400px;
+}
