@@ -7,6 +7,9 @@ import {
     Table,
     Button,
     Modal,
+    Form,
+    Input,
+    Select,
 } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 
@@ -99,17 +102,32 @@ export default class UserManage extends Component {
                 添加权限
             </Button>
         )
-        
-
-        
+             
         return (
             <div>
                 <Card title={title} extra={extra}>
                     <Table columns={this.columns} dataSource={data} />
                     <Modal title="添加权限" visible={showStatus === true} onOk={this.handleOk} onCancel={this.handleCancel}>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
+                    <Form.Item
+                            label="权限名"
+                            name="authorityName"
+                            rules={[{ required: true, message: '请输入角色名' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="&nbsp;&nbsp;&nbsp;权限"
+                            name="authority"
+                            rules={[{ required: true, message: '请输入角色名' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="父权限">
+                            <Select style={{ width: '100px' }}>
+                                <Select.Option value="/">/</Select.Option>
+                                <Select.Option value="/">/</Select.Option>
+                            </Select>
+                        </Form.Item>
                     </Modal>
                 </Card>
             </div>

@@ -7,18 +7,20 @@ import {
     Table,
     Button,
     Modal,
+    Form,
+    Input,
 } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 
 export default class Catering extends Component {
-    state={
-        showStatus:false,   //标识当前弹出框是否显示，0代表不显示 
-        data : [
+    state = {
+        showStatus: false,   //标识当前弹出框是否显示，0代表不显示 
+        data: [
             {
                 key: '1',
                 number: 1,
                 name: '餐馆一',
-                head:'张三',
+                head: '张三',
                 details: '本餐馆主要XXXXX',
 
             },
@@ -26,32 +28,33 @@ export default class Catering extends Component {
                 key: '2',
                 number: 2,
                 name: '餐馆二',
-                head:'李四',
+                head: '李四',
                 details: '本餐馆主要XXXXX',
             },
         ]
     }
     showModal = () => {
         this.setState({
-            showStatus:true
+            showStatus: true
         })
     };
 
     handleOk = () => {
         this.setState({
-            showStatus:false
+            showStatus: false
         })
     };
 
     handleCancel = () => {
         this.setState({
-            showStatus:false
+            showStatus: false
         })
     };
-     /**
-   * 初始化Table所有列的数组
-   */
-      initColumns = () => {
+    
+    /**
+  * 初始化Table所有列的数组
+  */
+    initColumns = () => {
         this.columns = [
             {
                 title: '序号',
@@ -100,17 +103,29 @@ export default class Catering extends Component {
                  添加餐馆信息
             </Button>
         )
-        
 
-        
+
+
         return (
             <div>
                 <Card title={title} extra={extra}>
                     <Table columns={this.columns} dataSource={data} />
-                    <Modal title="添加餐馆信息" visible={showStatus===true} onOk={this.handleOk} onCancel={this.handleCancel}>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
+                    <Modal title="添加餐馆信息" visible={showStatus === true} onOk={this.handleOk} onCancel={this.handleCancel}>
+                        <Form.Item
+                            label="&nbsp;&nbsp;&nbsp;餐馆名称"
+                            name="carteringName"
+                            rules={[{ required: true, message: '请输入餐馆名称' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="餐馆负责人"
+                            name="carteringHost"
+                            rules={[{ required: true, message: '请输入餐馆负责人' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        &nbsp;&nbsp;&nbsp;餐馆描述：<textarea style={{ height: "90px" }} />
                     </Modal>
                 </Card>
             </div>

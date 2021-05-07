@@ -7,6 +7,8 @@ import {
     Table,
     Button,
     Modal,
+    Form,
+    Input,
 } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 
@@ -90,16 +92,19 @@ export default class Meterial extends Component {
             </Button>
         )
 
-
-
         return (
             <div>
                 <Card title={title} extra={extra}>
                     <Table columns={this.columns} dataSource={data} />
                     <Modal title="添加原材料" visible={showStatus === true} onOk={this.handleOk} onCancel={this.handleCancel}>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
+                    <Form.Item
+                            label="食品原材料名称"
+                            name="carteringHost"
+                            rules={[{ required: true, message: '请输入食品原材料名称' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        食品原材料描述：<textarea style={{height:'90px'}}/>
                     </Modal>
                 </Card>
             </div>

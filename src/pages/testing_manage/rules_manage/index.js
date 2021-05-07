@@ -7,6 +7,8 @@ import {
     Table,
     Button,
     Modal,
+    Form,
+    Input,
 } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 
@@ -107,9 +109,21 @@ export default class RulesManage extends Component {
                 <Card title={title} extra={extra}>
                     <Table columns={this.columns} dataSource={data} />
                     <Modal title="添加检测指标" visible={showStatus === true} onOk={this.handleOk} onCancel={this.handleCancel}>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
-                        <p>Some contents...</p>
+                    <Form.Item
+                            label="检测指标"
+                            name="rules"
+                            rules={[{ required: true, message: '请输入餐馆名称' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        <Form.Item
+                            label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;阙值"
+                            name="quezhi"
+                            rules={[{ required: true, message: '请输入餐馆负责人' }]}
+                        >
+                            <Input />
+                        </Form.Item>
+                        检测指标说明：<textarea  style={{height:"90px"}}/>
                     </Modal>
                 </Card>
             </div>

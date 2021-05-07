@@ -80,7 +80,6 @@ class Login extends Component {
         //     return <Redirect to='/' />
         // }
         
-        
 
         //得到具有强大功能的form对象
         const form = this.props.form

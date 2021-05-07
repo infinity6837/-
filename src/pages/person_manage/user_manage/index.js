@@ -9,12 +9,7 @@ import {
     Modal,
     Form,
     Input,
-    Cascader,
     Select,
-    Row,
-    Col,
-    Checkbox,
-    AutoComplete,
 } from 'antd'
 import { PlusOutlined } from '@ant-design/icons'
 import './index.css'
@@ -43,6 +38,7 @@ export default class RoleManege extends Component {
             },
         ]
     }
+    
     showModal = () => {
         this.setState({
             showStatus: true
@@ -60,6 +56,9 @@ export default class RoleManege extends Component {
             showStatus: false
         })
     };
+    showDetails = () => {
+        // alert(this.state.data[i].name);
+    }
     /**
   * 初始化Table所有列的数组
   */
@@ -101,8 +100,8 @@ export default class RoleManege extends Component {
                 key: 'action',
                 render: () => (
                     <div>
-                        <a>详情</a>&nbsp;&nbsp;
-                        <a>删除</a>
+                       <Button type="primary" onClick={this.showDetails}>详情</Button>&nbsp;&nbsp;
+                       <Button type="primary" onClick={this.handleDelete}>删除</Button>
                     </div>
                 ),
             },
@@ -152,7 +151,7 @@ export default class RoleManege extends Component {
                             </Form.Item>
                             <Form.Item
                                 name="virtualName"
-                                label="用户名"
+                                label="&nbsp;&nbsp;&nbsp;用户名"
                                 tooltip="What do you want others to call you?"
                                 rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
                             >
@@ -160,7 +159,7 @@ export default class RoleManege extends Component {
                             </Form.Item>
                             <Form.Item
                                 name="password"
-                                label="密码"
+                                label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;密码"
                                 rules={[
                                     {
                                         required: true,
@@ -173,7 +172,7 @@ export default class RoleManege extends Component {
                             </Form.Item>
                             <Form.Item
                                 name="email"
-                                label="邮箱"
+                                label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱"
                                 rules={[
                                     {
                                         type: 'email',
@@ -187,10 +186,10 @@ export default class RoleManege extends Component {
                             >
                                 <Input />
                             </Form.Item>
-                            <Form.Item label="电话">
+                            <Form.Item label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;电话">
                                 <Input />
                             </Form.Item>
-                            <Form.Item label="角色">
+                            <Form.Item label="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色">
                                 <Select style={{ width: '100px' }}>
                                     <Select.Option value="teacher">老师</Select.Option>
                                     <Select.Option value="student">学生</Select.Option>

@@ -1,0 +1,9 @@
+.pwd{
+    width: 500px;
+    height:400px;
+    /* display: flex; */
+    background-color: rgb(121, 152, 187);
+    padding:70px;
+    margin: 0 auto;
+    margin-top:30px;
+}
